@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				overflow: hidden;
+			}
+			body {
+				background-color: #262626;
+			}
+			#results {
+				display: inline-flex;
+				height: 100%;
+				width: 100%;
+				color: white;
+			}
+			#results-inner {
+				margin: auto 5px;
+				width: 100%;
+				color: white;
+				text-align: center;
+			}
+			a.format-button {
+				max-width: 400px;
+				background-color: #4caf50;
+				border: none;
+				-webkit-border-radius: 4px;
+				-moz-border-radius: 4px;
+				border-radius: 4px;
+				color: white;
+				font-family: sans-serif;
+				padding: 15px 32px;
+				margin: 5px auto;
+				text-align: center;
+				text-decoration: none;
+				font-size: 16px;
+				display: block;
+			}
+			#b360{background-color: #4caf50;}
+			#b480{background-color: #e7e7e7; color: black;;}
+			#b720{background-color: #0099CC;}
+			#b1080{background-color: #c6382e;}
+		</style>
+	</head>
+	
+	<body>
+		<!-- Loading animation -->
+		<div class="container">
+			
+		</div>
+		
+		<!-- Results -->
+		<div id="results">
+			<div id="results-inner">
+				<a href="#" id="b360" class="format-button">360p</a>
+				<a href="#" id="b480" class="format-button">480p</a>
+				<a href="#" id="b720" class="format-button">720p</a>
+				<a href="#" id="b1080" class="format-button">1080p</a>
+			</div>
+		</div>
+		
+		<script charset="utf-8">
+			function init(thingvar) {
+				/* var thingvar = "toilet"; */
+			    document.getElementById("text").innerHTML = thingvar;
+			}
+		</script>
+		
+	</body>
+</html>
