@@ -33,45 +33,47 @@ var init = function(){
 			if (textJson.hasOwnProperty('ytdlrError')) {
 				divError.innerText = textJson.ytdlrError;
 				divError.style.display = 'block';
-			}
-			for (var i=0; i<textJson.formats.length; i++) {
-				switch (parseInt(textJson.formats[i].format_id)) {
-					// MP4
-					case 18: b360.href=textJson.formats[i].url; b360.style.display = "block"; break;
-					case 22: b720.href=textJson.formats[i].url; b720.style.display = "block"; break;
-					case 37: b1080.href=textJson.formats[i].url; b1080.style.display = "block"; break;
-					case 59: b480.href=textJson.formats[i].url; b480.style.display = "block"; break;
-					case 78: b480.href=textJson.formats[i].url; b480.style.display = "block"; break;
+			} else {
+				for (var i=0; i<textJson.formats.length; i++) {
+					switch (parseInt(textJson.formats[i].format_id)) {
+						// MP4
+						case 18: b360.href=textJson.formats[i].url; b360.style.display = "block"; break;
+						case 22: b720.href=textJson.formats[i].url; b720.style.display = "block"; break;
+						case 37: b1080.href=textJson.formats[i].url; b1080.style.display = "block"; break;
+						case 59: b480.href=textJson.formats[i].url; b480.style.display = "block"; break;
+						case 78: b480.href=textJson.formats[i].url; b480.style.display = "block"; break;
 
-					/*case 18: table+='<tr><td><a href="'+textJson.formats[i].url+'">18- 360p MP4</a></td></tr>'; break;
-					case 22: table+='<tr><td><a href="'+textJson.formats[i].url+'">22- 720p MP4</a></td></tr>'; break;
-					case 37: table+='<tr><td><a href="'+textJson.formats[i].url+'">37- 1080p MP4</a></td></tr>'; break;
-					case 59: table+='<tr><td><a href="'+textJson.formats[i].url+'">59- 480p MP4</a></td></tr>'; break;
-					case 78: table+='<tr><td><a href="'+textJson.formats[i].url+'">78- 480p MP4</a></td></tr>'; break;*/
+						/*case 18: table+='<tr><td><a href="'+textJson.formats[i].url+'">18- 360p MP4</a></td></tr>'; break;
+						 case 22: table+='<tr><td><a href="'+textJson.formats[i].url+'">22- 720p MP4</a></td></tr>'; break;
+						 case 37: table+='<tr><td><a href="'+textJson.formats[i].url+'">37- 1080p MP4</a></td></tr>'; break;
+						 case 59: table+='<tr><td><a href="'+textJson.formats[i].url+'">59- 480p MP4</a></td></tr>'; break;
+						 case 78: table+='<tr><td><a href="'+textJson.formats[i].url+'">78- 480p MP4</a></td></tr>'; break;*/
 
-					/*// Apple HLS
-					case 92: table+='<tr><td><a href="'+textJson.formats[i].url+'">92- HLS 240</a></td></tr>'; break;
-					case 93: table+='<tr><td><a href="'+textJson.formats[i].url+'">93- HLS 360</a></td></tr>'; break;
-					case 94: table+='<tr><td><a href="'+textJson.formats[i].url+'">94- HLS 480</a></td></tr>'; break;
-					case 95: table+='<tr><td><a href="'+textJson.formats[i].url+'">95- HLS 720</a></td></tr>'; break;
-					case 96: table+='<tr><td><a href="'+textJson.formats[i].url+'">96- HLS 1080</a></td></tr>'; break;
-					case 132: table+='<tr><td><a href="'+textJson.formats[i].url+'">132- HLS 240</a></td></tr>'; break;
-					case 151: table+='<tr><td><a href="'+textJson.formats[i].url+'">151- HLS 72</a></td></tr>'; break;
+						/*// Apple HLS
+						 case 92: table+='<tr><td><a href="'+textJson.formats[i].url+'">92- HLS 240</a></td></tr>'; break;
+						 case 93: table+='<tr><td><a href="'+textJson.formats[i].url+'">93- HLS 360</a></td></tr>'; break;
+						 case 94: table+='<tr><td><a href="'+textJson.formats[i].url+'">94- HLS 480</a></td></tr>'; break;
+						 case 95: table+='<tr><td><a href="'+textJson.formats[i].url+'">95- HLS 720</a></td></tr>'; break;
+						 case 96: table+='<tr><td><a href="'+textJson.formats[i].url+'">96- HLS 1080</a></td></tr>'; break;
+						 case 132: table+='<tr><td><a href="'+textJson.formats[i].url+'">132- HLS 240</a></td></tr>'; break;
+						 case 151: table+='<tr><td><a href="'+textJson.formats[i].url+'">151- HLS 72</a></td></tr>'; break;
 
-					// DASH mp4
-					case 133: table+='<tr><td><a href="'+textJson.formats[i].url+'">133- 240p DASH MP4</a></td></tr>'; break;
-					case 134: table+='<tr><td><a href="'+textJson.formats[i].url+'">134- 360p DASH MP4</a></td></tr>'; break;
-					case 135: table+='<tr><td><a href="'+textJson.formats[i].url+'">135- 480p DASH MP4</a></td></tr>'; break;
-					case 136: table+='<tr><td><a href="'+textJson.formats[i].url+'">136- 720p DASH MP4</a></td></tr>'; break;
-					case 137: table+='<tr><td><a href="'+textJson.formats[i].url+'">137- 1080p DASH MP4</a></td></tr>'; break;
-					case 138: table+='<tr><td><a href="'+textJson.formats[i].url+'">138- DASH</a></td></tr>'; break;
-					case 160: table+='<tr><td><a href="'+textJson.formats[i].url+'">160- 144p DASH MP4</a></td></tr>'; break;
-					case 264: table+='<tr><td><a href="'+textJson.formats[i].url+'">264- 1440p DASH MP4</a></td></tr>'; break;
-					case 298: table+='<tr><td><a href="'+textJson.formats[i].url+'">298- 720p DASH MP4 60fps</a></td></tr>'; break;
-					case 299: table+='<tr><td><a href="'+textJson.formats[i].url+'">299- 1080p DASH MP4 60fps</a></td></tr>'; break;
-					case 266: table+='<tr><td><a href="'+textJson.formats[i].url+'">266- 2160p DASH MP4</a></td></tr>'; break;*/
+						 // DASH mp4
+						 case 133: table+='<tr><td><a href="'+textJson.formats[i].url+'">133- 240p DASH MP4</a></td></tr>'; break;
+						 case 134: table+='<tr><td><a href="'+textJson.formats[i].url+'">134- 360p DASH MP4</a></td></tr>'; break;
+						 case 135: table+='<tr><td><a href="'+textJson.formats[i].url+'">135- 480p DASH MP4</a></td></tr>'; break;
+						 case 136: table+='<tr><td><a href="'+textJson.formats[i].url+'">136- 720p DASH MP4</a></td></tr>'; break;
+						 case 137: table+='<tr><td><a href="'+textJson.formats[i].url+'">137- 1080p DASH MP4</a></td></tr>'; break;
+						 case 138: table+='<tr><td><a href="'+textJson.formats[i].url+'">138- DASH</a></td></tr>'; break;
+						 case 160: table+='<tr><td><a href="'+textJson.formats[i].url+'">160- 144p DASH MP4</a></td></tr>'; break;
+						 case 264: table+='<tr><td><a href="'+textJson.formats[i].url+'">264- 1440p DASH MP4</a></td></tr>'; break;
+						 case 298: table+='<tr><td><a href="'+textJson.formats[i].url+'">298- 720p DASH MP4 60fps</a></td></tr>'; break;
+						 case 299: table+='<tr><td><a href="'+textJson.formats[i].url+'">299- 1080p DASH MP4 60fps</a></td></tr>'; break;
+						 case 266: table+='<tr><td><a href="'+textJson.formats[i].url+'">266- 2160p DASH MP4</a></td></tr>'; break;*/
+					}
 				}
 			}
+
 			//table += '</table>';
 			//results.innerHTML = table;
 			loading.style.display = 'none';
