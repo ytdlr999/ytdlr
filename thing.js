@@ -30,8 +30,8 @@ var init = function(){
 			var text = xmlHttp.responseText;
 			var textJson = JSON.parse(text);
 			//var table = '<table>';
-			if (textJson.hasOwnProperty('ytdlr-error')) {
-				divError.innerText = textJson.ytdlr-error;
+			if (textJson.hasOwnProperty('ytdlrError')) {
+				divError.innerText = textJson.ytdlrError;
 				divError.style.display = 'block';
 			}
 			for (var i=0; i<textJson.formats.length; i++) {
